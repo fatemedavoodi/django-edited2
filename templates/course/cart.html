@@ -107,37 +107,9 @@ margin-bottom: 20px;
 
 }
 
-.product-remove{
 
-position: absolute;
 
-bottom: 20px;
 
-right: 20px;
-
-padding: 10px 25px;
-
-background-color: green;
-
-color: white;
-
-cursor: pointer;
-
-border-radius: 5px;
-
-}
-
-.product-remove:hover{
-
-background-color: white;
-
-color: green;
-
-font-weight: 600;
-
-border: 1px solid green;
-
-}
 
 .product-quantity > input{
 
@@ -193,7 +165,7 @@ height: 40px;
 
 line-height: 40px;
 
-background-color: tomato;
+background-color: #ff6347;
 
 color: white;
 
@@ -289,18 +261,13 @@ background-color: red;
 
 					<h4 class="product-price">{{ product.product_object.price }}$</h4>
 
-					
 <!-- 
 					<p class="product-quantity">{{product.quantity}}<input value="1" name=""> -->
 
-					<p class="product-remove">
-
-						<i class="fa fa-trash" aria-hidden="true"></i>
-
-						<span class="remove">remove</span>
-
-					</p>
-
+						<form method="post">
+							{% csrf_token %}
+							<button type="submit">Clear Cart</button>
+						</form>
 				</div>
 
 			</div>
@@ -313,7 +280,7 @@ background-color: red;
 
 				<span>Total Price</span>
 
-				<span> {{ cart.get_total_price_one_quantity }}</span>
+				<span> {{ cart.get_total_price_some_quantity }}</span>
 
 			</p>
 

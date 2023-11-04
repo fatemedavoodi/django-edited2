@@ -226,15 +226,12 @@ class CourseDetailView(DetailView):
     def post(self, request, *args, **kwargs):
 
         cart = Cart(request)
-       
 
-        
         if 'id' in request.POST :
             product = get_object_or_404(Course, id=request.POST['id'])    
             cart.delete_from_cart(product)
             
         else:
-
             product = get_object_or_404(Course, id=request.POST['pk'])
             cart.add_to_cart_some_quantity(product)
 
