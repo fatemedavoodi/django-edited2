@@ -1,5 +1,5 @@
 {% load static %}
-{% load compress %}
+
 {% load custom_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -22,17 +22,18 @@
   <!-- Vendor CSS Files -->
 
   <link href="{% static 'assets/vendor/animate.css' %}" rel="stylesheet">
-  {% compress css %}
+
   <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-  {% endcompress %}
 
   <!-- =======================================================
   * Template Name: Mentor
@@ -58,8 +59,8 @@
             <li><a href="{% url 'root:about' %}">About</a></li>
             <li><a href="{% url 'courses:courses' %}">Courses</a></li>
             <li><a href="{% url 'root:trainer' %}">Trainers</a></li>
-            <li><a href={% url 'courses:cart' %}>Submit and pay {{ cart|length}}</a></li>
             <li><a href="{% url 'root:contact' %}">Contact</a></li>
+            <li><a href={% url 'courses:cart' %}>Submit and pay {{ cart|length}}</a></li>
             <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 {% category as category%}
@@ -141,21 +142,6 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-
-            {% if messages %}
-              {% for message in messages %}
-                <p style='color:green'>{{ message}}</p>
-              {% endfor %}
-            {% endif %}
-            <form  method="post">
-              {% csrf_token %}
-              <input type="email" name="email">
-              <input type="submit" value="Subscribe">
-            </form>
-          </div>
 
         </div>
       </div>
@@ -189,7 +175,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  {% compress js %}
+  
   <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -198,7 +184,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-  {% endcompress %}
+ 
 
 </body>
 
