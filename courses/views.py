@@ -240,3 +240,7 @@ class CourseDetailView(DetailView):
     
 class PaymentView(TemplateView):
     template_name = 'course/cart.html'
+
+
+def api_test(request):
+    pass
